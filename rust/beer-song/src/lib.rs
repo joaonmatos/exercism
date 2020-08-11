@@ -34,7 +34,7 @@ fn format_number_bottles(n: u32) -> String {
 
 pub fn sing(start: u32, end: u32) -> String {
     let mut acc = String::new();
-    for n in (end..=start).into_iter().rev() {
+    for n in (end..=start).rev() {
         acc.push_str(verse(n).as_str());
         acc.push('\n');
     }
