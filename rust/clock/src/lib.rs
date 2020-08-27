@@ -29,10 +29,7 @@ impl Clock {
 
     pub fn add_minutes(&self, minutes: i32) -> Self {
         let partial = self.minutes + minutes;
-        Self {
-            hours: (self.hours + partial.div_euclid(60)).rem_euclid(24),
-            minutes: partial.rem_euclid(60),
-        }
+        Self::new(self.hours, partial)
     }
 }
 
