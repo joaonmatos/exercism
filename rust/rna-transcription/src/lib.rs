@@ -37,13 +37,17 @@ impl DNA {
 
     pub fn into_rna(self) -> RNA {
         RNA {
-            strand: self.strand.chars().map(|c| match c {
-                'G' => 'C',
-                'C' => 'G',
-                'T' => 'A',
-                'A' => 'U',
-                _ => unreachable!()
-            }).collect()
+            strand: self
+                .strand
+                .chars()
+                .map(|c| match c {
+                    'G' => 'C',
+                    'C' => 'G',
+                    'T' => 'A',
+                    'A' => 'U',
+                    _ => unreachable!(),
+                })
+                .collect(),
         }
     }
 }

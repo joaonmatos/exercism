@@ -25,8 +25,7 @@ pub fn raindrops(n: u32) -> String {
     }
     if out == "" {
         format!("{}", n)
-    }
-    else {
+    } else {
         out
     }
 }

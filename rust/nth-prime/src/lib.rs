@@ -36,7 +36,7 @@ pub fn nth(n: u32) -> u32 {
         5 => 13,
         6 => 17,
         7 => 19,
-        _ => sieve(n)
+        _ => sieve(n),
     }
 }
 
@@ -70,7 +70,9 @@ struct SixMultiple {
 
 impl SixMultiple {
     fn new() -> Self {
-        Self { state: SMState::Minus(23), }
+        Self {
+            state: SMState::Minus(23),
+        }
     }
 }
 
@@ -80,11 +82,11 @@ impl Iterator for SixMultiple {
     fn next(&mut self) -> Option<Self::Item> {
         let out = match self.state {
             SMState::Minus(n) => n,
-            SMState::Plus(n) => n
+            SMState::Plus(n) => n,
         };
         self.state = match self.state {
             SMState::Minus(n) => SMState::Plus(n + 2),
-            SMState::Plus(n) => SMState::Minus(n + 4)
+            SMState::Plus(n) => SMState::Minus(n + 4),
         };
         Some(out)
     }
@@ -92,5 +94,5 @@ impl Iterator for SixMultiple {
 
 enum SMState {
     Minus(u32),
-    Plus(u32)
+    Plus(u32),
 }
